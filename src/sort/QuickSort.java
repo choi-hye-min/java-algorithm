@@ -3,10 +3,10 @@ package sort;
 import java.util.Arrays;
 
 public class QuickSort {
-    private void sort(int[] data, int l, int r) {
-        int left = l;
-        int right = r;
-        int pivot = data[(l + r) / 2];
+    private void sort(int[] data, int leftPosition, int rightPosition) {
+        int left = leftPosition;
+        int right = rightPosition;
+        int pivot = data[(leftPosition + rightPosition) / 2];
 
         do {
             while (data[left] < pivot) left++;
@@ -17,8 +17,8 @@ public class QuickSort {
             }
         } while (left <= right);
 
-        if (l < right) sort(data, l, right); // 0...right
-        if (r > left) sort(data, left, r); // left...10
+        if (leftPosition < right) sort(data, leftPosition, right); // 0...right
+        if (rightPosition > left) sort(data, left, rightPosition); // left...10
     }
 
     private void swap(int[] data, int left, int right) {
