@@ -1,7 +1,6 @@
 package datastructure;
 
-public class UnidirectionalLinkedList {
-
+public class LinkedList {
     public static void main(String[] args){
 
     }
