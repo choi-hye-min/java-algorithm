@@ -13,9 +13,9 @@ import java.util.stream.Stream;
  */
 public class MergeSort {
     public static void main(String[] args) {
-        int[] array = {4, 6, 3, 9, 2, 1, 7, 5, 8, 0, 10};
+        int[] array = {4, 6, 3, 9, 2, 1, 7, 5, 8, 0};
         mergeSort(array, 0, array.length - 1);
-        Arrays.stream(array).forEach(System.out::println);
+        //Arrays.stream(array).forEach(System.out::print);
     }
 
     private static void mergeSort(int[] array, int left, int right) {
@@ -45,5 +45,8 @@ public class MergeSort {
 
         for (int index = left; index < tempIndex; index++)
             array[index] = tempArray[index];
+
+        Arrays.stream(array).forEach(System.out::print);
+        System.out.println();
     }
 }
