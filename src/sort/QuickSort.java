@@ -3,7 +3,7 @@ package sort;
 import java.util.Arrays;
 
 public class QuickSort {
-    private void sort(int[] data, int leftPosition, int rightPosition) {
+    private void _quicksSort(int[] data, int leftPosition, int rightPosition) {
         int left = leftPosition;
         int right = rightPosition;
         int pivot = data[(leftPosition + rightPosition) / 2];
@@ -17,8 +17,9 @@ public class QuickSort {
             }
         } while (left <= right);
 
-        if (leftPosition < right) sort(data, leftPosition, right); // 0...right
-        if (rightPosition > left) sort(data, left, rightPosition); // left...10
+        // 재귀로 분할하여 정렬한다.
+        if (leftPosition < right) _quicksSort(data, leftPosition, right); // 0...right
+        if (rightPosition > left) _quicksSort(data, left, rightPosition); // left...10
     }
 
     private void swap(int[] data, int left, int right) {
@@ -32,7 +33,7 @@ public class QuickSort {
         int[] data = {7, 4, 6, 5, 8, 3, 2, 0};
 
         QuickSort quickSort = new QuickSort();
-        quickSort.sort(data, 0, data.length - 1);
+        quickSort._quicksSort(data, 0, data.length - 1);
 
         Arrays.stream(data).forEach(System.out::print);
     }
