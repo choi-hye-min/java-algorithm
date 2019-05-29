@@ -11,7 +11,7 @@ public class RouteBetweenNodes {
 
         // add connections
         graph[0] = new ArrayList<>();
-        graph[0].add(1)
+        graph[0].add(1);
 
 
         graph[1] = new ArrayList<>();
