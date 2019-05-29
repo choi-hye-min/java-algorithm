@@ -43,9 +43,10 @@ public class RouteBetweenNodes {
         // 방문을 체크하기위해 확보한다.
         boolean visited[] = new boolean[graph.length];
 
+        // 스택이 비어있지 않다면
         while (stack.isEmpty() == false) {
             int idx = stack.pop();
-            visited[idx] = true;
+            visited[idx] = true; // 방문표시
             if (graph[idx] != null) {
                 for (int node : graph[idx]) {
                     if (visited[node]) continue;
