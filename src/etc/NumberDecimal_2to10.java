@@ -5,6 +5,8 @@ import java.util.Scanner;
 /**
  * 진수 변환
  * 2 -> 10
+ *
+ * 재귀로 해볼것
  */
 public class NumberDecimal_2to10 {
     public static void main(String[] args) {
