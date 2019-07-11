@@ -8,7 +8,7 @@ public class BinaryToDecimal {
     }
 
     public int binaryToDecimal(String binary) {
-        if (binary == null || binary.isEmpty() == true)
+        if (binary == null || binary.isEmpty())
             throw new NumberFormatException(binary);
 
         return binaryToDecimal(binary, binary.length(), 2, 0);
