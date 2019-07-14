@@ -19,8 +19,8 @@ public class ElevatorTest {
         int capacity = 5; // 수용공간
         int weightLimit = 200; // 몸무게제한
 
-        int stop = elevatorTest.stop(peopleWeight, destnation, maxFloor, capacity, weightLimit);
-        System.out.println("STOP : " + stop);
+        int stop = elevatorTest.solution(peopleWeight, destnation, maxFloor, capacity, weightLimit);
+        System.out.println(stop);
     }
 
     class Person {
@@ -41,37 +41,33 @@ public class ElevatorTest {
         }
     }
 
-    public int stop(int[] peopleWeight, int[] destnation, int maxFloor, int maxCapacity, int weightLimit) {
-        int stopCnt = 0;
+    private int solution(int[] peopleWeight, int[] destnation, int maxFloor, int capacityLimit, int weightLimit) {
+        Queue<Person> personQueue = new LinkedList<>();
+        for (int i = 0; i < peopleWeight.length; i++) {
+            personQueue.add(new Person(peopleWeight[i], destnation[i]));
+        }
 
-        Queue<Person> queue = new LinkedList<>();
-        initPersonSetting(peopleWeight, destnation, queue);
-
-        while (!queue.isEmpty()) {
+        int stop = 0;
+        while (!personQueue.isEmpty()) {
+            int totalWeight = 0;
+            int totalCapacity = 0;
             Set<Integer> targetFloor = new HashSet<>();
-            int currentWeight = 0; // 현재 총 몸무게
-            int currentCapacity = 0; // 현재 사람수
 
-            while (maxCapacity > currentCapacity) {
-                Person person = queue.peek();
-                if (queue.isEmpty() || weightLimit < person.getWeight() + currentWeight) break;
+            while (capacityLimit > totalCapacity) {
+                Person person = personQueue.peek();
 
-                currentWeight += person.getWeight();
-                currentCapacity++;
+                if (personQueue.isEmpty() || weightLimit < person.weight + totalWeight) break;
 
+                totalWeight += person.weight;
+                totalCapacity++;
                 targetFloor.add(person.getFloor());
-                queue.remove();
+
+                personQueue.remove();
             }
 
-            stopCnt += targetFloor.size() + 1;
+            stop += targetFloor.size() + 1;
         }
 
-        return stopCnt;
-    }
-
-    private void initPersonSetting(int[] peopleWeight, int[] destnation, Queue<Person> queue) {
-        for (int i = 0; i < peopleWeight.length; i++) {
-            queue.add(new Person(peopleWeight[i], destnation[i]));
-        }
+        return stop;
     }
 }

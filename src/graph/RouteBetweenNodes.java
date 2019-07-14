@@ -41,10 +41,10 @@ public class RouteBetweenNodes {
         stack.add(node1); // 시작노드를 담는다
 
         // 방문을 체크하기위해 확보한다.
-        boolean visited[] = new boolean[graph.length];
+        boolean[] visited = new boolean[graph.length];
 
         // 스택이 비어있지 않다면
-        while (stack.isEmpty() == false) {
+        while (!stack.isEmpty()) {
             int idx = stack.pop();
             visited[idx] = true; // 방문표시
             if (graph[idx] != null) {
