@@ -9,9 +9,9 @@ import java.util.Set;
  * https://seolhun.github.io/Java-Elevators/
  * 목표는 엘리베이터가 멈추는 총 횟수를 세는 것입니다.
  */
-public class ElevatorTest {
+public class Elevator_test {
     public static void main(String[] args) {
-        ElevatorTest elevatorTest = new ElevatorTest();
+        Elevator_test elevatorTest = new Elevator_test();
 
         int[] peopleWeight = {40, 40, 100, 80, 20}; // 사람몸무게
         int[] destnation = {3, 3, 2, 2, 3}; // 목적층수
