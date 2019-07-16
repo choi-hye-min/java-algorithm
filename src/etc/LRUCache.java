@@ -44,14 +44,13 @@ public class LRUCache {
         if (map.containsKey(key)) {
             // update
             ListNode node = map.get(key);
+
+            node.prev.next = node.next.prev;
+            node.next.prev = node.prev.next;
+
             node.val = val;
-
-            node.prev = null;
-            node.next = head.next;
-
-            head = node;
-
             map.put(key, node);
+            head = node;
         } else {
             // insert
             ListNode node = new ListNode(key, val);
