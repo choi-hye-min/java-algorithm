@@ -17,6 +17,8 @@ public class VersionCheckTest {
         String solution3 = versionCheck.Solution2("1.2.0", "1.1.99");
         String solution4 = versionCheck.Solution2("1.1", "1.0.1");
 
+        // 1.0 - 1.0.1
+
         System.out.println(solution1);
         System.out.println(solution2);
         System.out.println(solution3);

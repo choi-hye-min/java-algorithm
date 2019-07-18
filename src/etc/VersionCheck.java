@@ -10,7 +10,7 @@ package etc;
 public class VersionCheck {
     public static void main(String[] args){
         VersionCheck versionCheck = new VersionCheck();
-        String solution = versionCheck.Solution2("1.0", "1.0.1");
+        int solution = versionCheck.SolutionRecusiv("1.0".split("\\."), 0, "1.0.1".split("\\."), 0);
         System.out.println(solution);
     }
 
@@ -48,5 +48,30 @@ public class VersionCheck {
         String symbol = versionFlagCount >= 0 ? ">" : "<";
 
         return version1+" "+symbol+" "+version2;
+    }
+
+    // by.mik
+    private int SolutionRecusiv(String[] version1, int index1, String[] version2, int index2) {
+        // validation
+        if (version1.length == index1 && version2.length == index2)
+            return 0;
+        if (version1.length > index1 && version2.length == index2)
+            return 1;
+        if (version1.length == index1 && version2.length > index2)
+            return -1;
+
+        // 1 base condition
+        int v1 = Integer.valueOf(version1[index1]);
+        int v2 = Integer.valueOf(version1[index2]);
+        if (v1 > v2)
+            return 1;
+        else if (v2 > v1)
+            return -1;
+
+        // action
+        index1++;
+        index2++;
+
+        return SolutionRecusiv(version1, index1, version2, index2);
     }
 }
