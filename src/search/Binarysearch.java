@@ -5,7 +5,7 @@ package search;
  */
 public class Binarysearch {
 
-    public static void search(int[] arr, int findValue){
+    public void search(int[] arr, int findValue){
         int mid;
         int left = 0;
         int right = arr.length-1;
@@ -26,10 +26,16 @@ public class Binarysearch {
         }
     }
 
+    // 재귀적 이진검색
+    public void searchRecursive(){
+
+    }
+
     public static void main(String[] args){
         int[] arr = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
         int findValue = 17;
 
-        search(arr, findValue);
+        Binarysearch binarysearch = new Binarysearch();
+        binarysearch.search(arr, findValue);
     }
 }

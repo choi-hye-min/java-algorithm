@@ -19,12 +19,10 @@ public class BoatMaxStop {
     private int solution(int[] person, int limitWeight) {
         int stop = 0;
         int personSize = person.length;
-        int loopCount = 0;
         while(personSize != 0){
             int currentWeight = 0;
 
             for (int i = 0; i < person.length; i++) {
-                loopCount++;
                 if(person[i] == 0){
                     continue;
                 }
