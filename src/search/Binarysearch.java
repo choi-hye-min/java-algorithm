@@ -27,15 +27,44 @@ public class Binarysearch {
     }
 
     // 재귀적 이진검색
-    public void searchRecursive(){
+    public void solution(int[] arr, int findValue) {
+        int answer = binaryRecursive(arr, 0, arr.length - 1, findValue);
+        System.out.println(answer);
+    }
 
+    private int binaryRecursive(int[] arr, int startPosition, int endPosition, int findValue) {
+        int middle = (startPosition + endPosition) / 2; // 중간 인덱스를 구함
+
+        // 포지션 범위를 넘어갔다면 값이 존재하지않음
+        if (startPosition > endPosition) {
+            return -1;
+        }
+
+        // 중간값보다 찾는값이 크다면 뒤로 찾는다
+        if (arr[middle] < findValue) {
+            return binaryRecursive(arr, middle + 1, endPosition, findValue);
+        }
+
+        // 중간값보다 찾는값이 작다면 앞으로 찾는다.
+        if (arr[middle] > findValue) {
+            return binaryRecursive(arr, startPosition, middle - 1, findValue);
+        }
+
+        // 값이 일치하면 반환
+        if (arr[middle] == findValue) {
+            return middle;
+        }
+
+        return -1;
     }
 
     public static void main(String[] args){
         int[] arr = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
-        int findValue = 17;
+        int findValue = 19;
 
         Binarysearch binarysearch = new Binarysearch();
-        binarysearch.search(arr, findValue);
+        //binarysearch.search(arr, findValue);
+
+        binarysearch.solution(arr, findValue);
     }
 }
