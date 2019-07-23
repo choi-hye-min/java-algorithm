@@ -13,7 +13,7 @@ package etc;
 public class GdcLcm {
     public static void main(String[] args) {
         GdcLcm gdcLcm = new GdcLcm();
-        gdcLcm.solution(3, 12);
+        gdcLcm.solution(8, 22);
     }
 
     public int[] solution(int n, int m) {
