@@ -6,16 +6,16 @@ import java.util.stream.Collectors;
 /**
  * 반복된 알파벳으로 이루어진 문자배열이 주어지면 연속으로 중복된 알파벳이 없도록 문자배열을 재배열하여 리턴하시오. 불가능 하다면 empty string을 리턴하시오.
  * Given a string with repeated characters, rearrange the string so that no two adjacent characters are the same. If this is impossible, return an empty string.
- * <p>
+ *
  * input: "aaabbc"
  * output: "ababac"
- * <p>
+ *
  * input: "aaac"
  * output: ""
  */
-public class TempQuestion00 {
+public class TempQuestion00_ing {
     public static void main(String[] args) {
-        TempQuestion00 question00 = new TempQuestion00();
+        TempQuestion00_ing question00 = new TempQuestion00_ing();
         question00.solution("aaaaabbcc");
     }
 
