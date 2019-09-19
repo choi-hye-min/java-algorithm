@@ -42,3 +42,42 @@ public class TempQuestion00_ing {
                         (v1, v2) -> v1, LinkedHashMap::new));
     }
 }
+
+class Solution {
+    public String reorganizeString(String S) {
+        int slen = S.length();
+        int [] ar = new int[26];
+        for (int i = 0 ; i < slen; i++) {
+            int idx = S.charAt(i) - 'a';
+            ar[idx] += 1;
+        }
+
+        int maxIdx = 0;
+        for (int i = 0 ; i < 26; i++) {
+            if (ar[i] > ar[maxIdx]) {
+                maxIdx = i;
+            }
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append( (char)(maxIdx + 'a'));
+        ar[maxIdx]--;
+        int prevIdx = maxIdx;
+        for (int i = 1; i < slen ; i++) {
+            maxIdx = (prevIdx+1)%26;
+            for(int j = 0; j < 26;j++) {
+                if (j != prevIdx && ar[j] > ar[maxIdx]) {
+                    maxIdx = j;
+                }
+            }
+
+            if (ar[maxIdx] == 0)
+                return "";
+            sb.append( (char)(maxIdx + 'a'));
+            ar[maxIdx]--;
+            prevIdx = maxIdx;
+        }
+        return sb.toString();
+    }
+}
